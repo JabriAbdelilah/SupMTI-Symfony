@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Player{% endblock %}
+
+{% block body %}
+    <div class="d-flex justify-content-between align-items-center">
+        <h1>{{ player.name }}</h1>
+        <div class="d-flex justify-content-between align-items-center">
+            <a class="btn btn-dark me-3" href="{{ path('app_player_index') }}">Back to list</a>
+            <a class="btn btn-warning me-3" href="{{ path('app_player_edit', {'id': player.id}) }}">Edit</a>
+            {{ include('player/_delete_form.html.twig') }}
+        </div>
+    </div>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ player.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ player.name }}</td>
+            </tr>
+            <tr>
+                <th>Date of birth</th>
+                <td>{{ player.dateOfBirth ? player.dateOfBirth|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Shirt number</th>
+                <td>{{ player.shirtNumber }}</td>
+            </tr>
+            <tr>
+                <th>Team</th>
+                <td>
+                    <a href="{{ path('app_team_show', {'id': player.team.id}) }}" class="text-decoration-none">
+                        {{ player.team.name }}
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+{% endblock %}

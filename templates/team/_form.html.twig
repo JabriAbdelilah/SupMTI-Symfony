@@ -1,0 +1,22 @@
+{{ form_start(form) }}
+<div class="mb-3">
+    {{ form_label(form.name) }}
+    {{ form_widget(form.name) }}
+    {{ form_errors(form.name) }}
+</div>
+
+<div class="mb-3">
+    {{ form_label(form.abbreviation) }}
+    {{ form_widget(form.abbreviation) }}
+    {{ form_errors(form.abbreviation) }}
+</div>
+
+<div class="mb-3">
+    {{ form_label(form.city) }}
+    {{ form_widget(form.city) }}
+    {{ form_errors(form.city) }}
+</div>
+
+<button class="btn btn-dark">{{ button_label|default('Save') }}</button>
+
+{{ form_end(form) }}

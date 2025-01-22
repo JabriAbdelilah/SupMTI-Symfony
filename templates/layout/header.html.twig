@@ -1,0 +1,21 @@
+<header id="header" class="header d-flex align-items-center bg-body-tertiary">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid">
+                <p class="navbar-brand mb-0">Players Management</p>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link {{ app.request.attributes.get('_route') matches '/team/' ? 'active' : '' }}" href="{{ path('app_team_index') }}">Teams</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {{ app.request.attributes.get('_route') matches '/player/' ? 'active' : '' }}" href="{{ path('app_player_index') }}">Players</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+</header>
+

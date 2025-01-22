@@ -1,0 +1,28 @@
+{{ form_start(form) }}
+<div class="mb-3">
+    {{ form_label(form.name) }}
+    {{ form_widget(form.name) }}
+    {{ form_errors(form.name) }}
+</div>
+
+<div class="mb-3">
+    {{ form_label(form.dateOfBirth) }}
+    {{ form_widget(form.dateOfBirth) }}
+    {{ form_errors(form.dateOfBirth) }}
+</div>
+
+<div class="mb-3">
+    {{ form_label(form.shirtNumber) }}
+    {{ form_widget(form.shirtNumber) }}
+    {{ form_errors(form.shirtNumber) }}
+</div>
+
+<div class="mb-3">
+    {{ form_label(form.team) }}
+    {{ form_widget(form.team) }}
+    {{ form_errors(form.team) }}
+</div>
+
+<button class="btn btn-dark">{{ button_label|default('Save') }}</button>
+
+{{ form_end(form) }}

@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Players{% endblock %}
+
+{% block body %}
+    <div class="d-flex justify-content-between align-items-center">
+        <h1>Players</h1>
+        <a class="btn btn-dark" role="button" href="{{ path('app_player_new') }}">Create new player</a>
+    </div>
+
+    <table class="table">
+        <thead class="table-dark">
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Date of birth</th>
+                <th>Shirt number</th>
+                <th>Team</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for player in players %}
+            <tr>
+                <td class="align-middle">{{ player.id }}</td>
+                <td class="align-middle">{{ player.name }}</td>
+                <td class="align-middle">{{ player.dateOfBirth ? player.dateOfBirth|date('Y-m-d') : '' }}</td>
+                <td class="align-middle"><span class="badge text-bg-secondary">{{ player.shirtNumber }}</span></td>
+                <td class="align-middle">
+                    <a href="{{ path('app_team_show', {'id': player.team.id}) }}" class="text-decoration-none">
+                        {{ player.team.name }}
+                    </a>
+                </td>
+                <td class="align-middle text-end">
+                    <a class="btn btn-success" role="button" href="{{ path('app_player_show', {'id': player.id}) }}">show</a>
+                    <a class="btn btn-warning" role="button" href="{{ path('app_player_edit', {'id': player.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
